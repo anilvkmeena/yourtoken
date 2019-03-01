@@ -10,6 +10,15 @@ public class ClientUser {
 	private String userName;
 	private String userEmail;
 	private String userPassword;
+	private String userType;
+	
+	
+	public String getUserType() {
+		return userType;
+	}
+	public void setUserType(String userType) {
+		this.userType = userType;
+	}
 	public int getUserId() {
 		return userId;
 	}
@@ -34,22 +43,24 @@ public class ClientUser {
 	public void setUserPassword(String userPassword) {
 		this.userPassword = userPassword;
 	}
-	public ClientUser(int userId, String userName, String userEmail, String userPassword) {
+	public ClientUser() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public ClientUser(int userId, String userName, String userEmail, String userPassword, String userType) {
 		super();
 		this.userId = userId;
 		this.userName = userName;
 		this.userEmail = userEmail;
 		this.userPassword = userPassword;
-	}
-	public ClientUser() {
-		super();
-		// TODO Auto-generated constructor stub
+		this.userType = userType;
 	}
 	@Override
 	public String toString() {
 		return "ClientUser [userId=" + userId + ", userName=" + userName + ", userEmail=" + userEmail
-				+ ", userPassword=" + userPassword + "]";
+				+ ", userPassword=" + userPassword + ", userType=" + userType + "]";
 	}
+	
 	
 
 }
