@@ -13,7 +13,7 @@ import com.yourtoken.yourtokenadmin.service.ClientAdminService;
 
 
 @RestController
-@RequestMapping("/yourtoken-admin")
+@RequestMapping("/yourtoken")
 public class YourTokenAdminController {
 
 	private ClientAdminService clientAdminService;
@@ -36,12 +36,16 @@ public class YourTokenAdminController {
 	{
 		clientAdminService.saveClient(clientAdmin);
 	}
-	@PostMapping("/get-client/{clientId}")
+
+	@GetMapping("/get-client/{clientId}")
 	public ClientAdmin getClient(@PathVariable int clientId)
 	{
 		clientAdmin=clientAdminService.findClient(clientId);
 		return clientAdmin;
 	}
+	
+	
+	
 	
 
 }

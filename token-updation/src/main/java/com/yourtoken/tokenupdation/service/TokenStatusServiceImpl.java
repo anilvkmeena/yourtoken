@@ -23,6 +23,7 @@ public class TokenStatusServiceImpl implements TokenStatusService {
 	@Override
 	public void save(TokenStatus tokenStatus) {
 		tokenStatusRepositry.save(tokenStatus);
+	
 
 	}
 
