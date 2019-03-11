@@ -3,8 +3,13 @@ security:
     client:
       client-id: client
       client-secret: pass
+    authorization:
+      check-token-access: permitAll 
       
 spring:
+  application:
+    name: authorization-server
+   
   datasource:
     url: jdbc:mysql://localhost/authorization_server
     username: root
@@ -13,3 +18,11 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+server:
+  port: 8091
+
+
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761/eureka

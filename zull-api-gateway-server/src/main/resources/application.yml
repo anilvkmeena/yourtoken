@@ -1,0 +1,30 @@
+
+spring:
+  application:
+    name: api-gateway
+server:
+  port: 8081
+eureka:
+  client:
+    service-url:
+      default-zone=http: //localhost:8761/eureka
+
+
+
+
+security:
+  oauth2:
+    client:
+      clientId: client
+      clientSecret: pass
+      accessTokenUri: http://localhost:8091/oauth/access_token
+      userAuthorizationUri: http://localhost:8091/oauth/authorize
+      clientAuthenticationScheme: form
+      
+#zull api not forword header by default so disable it we need to add it
+zuul:
+  sensitive-headers: Cookie,Set-Cookie
+      
+      
+      
+      

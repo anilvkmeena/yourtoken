@@ -7,6 +7,7 @@ import org.springframework.security.oauth2.provider.token.store.JdbcTokenStore;
 
 @SpringBootApplication
 @EnableAuthorizationServer
+
 public class AuthorizationServerApplication {
 
 	public static void main(String[] args) {

@@ -50,6 +50,11 @@ public class TokenGenerationController {
 		tokenRepositry.save(tokenCreation.createToken(userId));
 		
 	}
+	@GetMapping("/test")
+	public String test()
+	{
+		return "token-generation";
+	}
 
 	
 }
