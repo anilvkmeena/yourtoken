@@ -1,5 +1,6 @@
 package com.yourtoken.yourtokenadmin.controller;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,6 +23,7 @@ public class YourTokenAdminController {
 	@Autowired
 	public YourTokenAdminController(ClientAdminService clientAdminService) {
 		super();
+		
 		this.clientAdminService = clientAdminService;
 	}
 
@@ -31,18 +33,20 @@ public class YourTokenAdminController {
 		return  "hello Admin";
 	}
 	
-	@PostMapping("/save-client")
+	@PostMapping("client")
 	public void  registerClient(@RequestBody ClientAdmin clientAdmin)
 	{
 		clientAdminService.saveClient(clientAdmin);
 	}
 
-	@GetMapping("/get-client/{clientId}")
+	@GetMapping("/client/{clientId}")
 	public ClientAdmin getClient(@PathVariable int clientId)
 	{
 		clientAdmin=clientAdminService.findClient(clientId);
 		return clientAdmin;
 	}
+
+
 	
 
 }
