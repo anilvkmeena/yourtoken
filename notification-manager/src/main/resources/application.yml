@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: notification-manager
+  mail:
+    host: smtp.gmail.com
+    username: akumarmeena11@gmail.com
+    password: 19960714an+OD
+    port: 587
+    
+server:
+  port: 8081
+ 
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761/eureka
+
+
