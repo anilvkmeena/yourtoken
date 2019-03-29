@@ -1,4 +1,4 @@
-package com.yourtoken.notificationmanager.service;
+package com.yourtoken.notificationmanager.serviceimpl;
 
 import java.util.Properties;
 
@@ -9,6 +9,7 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.stereotype.Service;
 
 import com.yourtoken.notificationmanager.bean.SimpleMailContent;
+import com.yourtoken.notificationmanager.service.SendMailService;
 
 @Service
 public class SimpleMail implements SendMailService {
