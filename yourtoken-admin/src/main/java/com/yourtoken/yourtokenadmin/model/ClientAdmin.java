@@ -1,4 +1,4 @@
-package com.yourtoken.yourtokenadmin.beans;
+package com.yourtoken.yourtokenadmin.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

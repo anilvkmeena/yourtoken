@@ -6,10 +6,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 
+import com.yourtoken.notificationmanager.Utility.DateFormat;
 import com.yourtoken.notificationmanager.Utility.NMConstant;
-import com.yourtoken.notificationmanager.Utility.NotificationMessage;
-import com.yourtoken.notificationmanager.Utility.OtpGeneration;
-import com.yourtoken.notificationmanager.bean.SimpleMailContent;
+
+import com.yourtoken.notificationmanager.models.SimpleMailContent;
 
 @Configuration
 public class MailBeans {
@@ -25,19 +25,11 @@ public class MailBeans {
 	{
 		return new SimpleMailMessage();
 	}
-	
+
 	@Bean
-	public OtpGeneration otpGenerationBean()
+	public DateFormat dateFormatBeans()
 	{
-		return new OtpGeneration();
-		
-	}
-	
-	
-	@Bean
-	public NotificationMessage notificationMessageBean()
-	{
-		return new NotificationMessage();
+		return new DateFormat();
 	}
 	
 }

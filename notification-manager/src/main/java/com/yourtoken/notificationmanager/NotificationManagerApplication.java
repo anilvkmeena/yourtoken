@@ -7,7 +7,6 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableFeignClients("com.yourtoken.notificationmanager")
 public class NotificationManagerApplication {
 
 	public static void main(String[] args) {

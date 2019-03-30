@@ -8,7 +8,7 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.stereotype.Service;
 
-import com.yourtoken.notificationmanager.bean.SimpleMailContent;
+import com.yourtoken.notificationmanager.models.SimpleMailContent;
 import com.yourtoken.notificationmanager.service.SendMailService;
 
 @Service
@@ -27,9 +27,7 @@ public class SimpleMail implements SendMailService {
 
 	@Override
 	public void setMessage(SimpleMailContent simpleMailContent) {
-		// TODO Auto-generated method stub
 		templateMessage.setTo(simpleMailContent.getEmailId());
-		//templateMessage.setFrom("akumarmeena11@gmail.com");
 		templateMessage.setSubject(simpleMailContent.getSubject());
 		templateMessage.setText(simpleMailContent.getEmailText());
 		

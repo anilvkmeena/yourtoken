@@ -1,9 +1,10 @@
-package com.yourtoken.notificationmanager.bean;
+package com.yourtoken.yourtokenadmin.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.validation.constraints.Email;
 
+//a entity class for store OTP in database 
 @Entity
 public class Otp {
 
@@ -11,7 +12,8 @@ public class Otp {
 	private String email;
 	private String otp;
 	private boolean verfied;
-	
+	private String createdDate;
+	private String updatedDate;
 	public String getEmail() {
 		return email;
 	}
@@ -30,20 +32,35 @@ public class Otp {
 	public void setVerfied(boolean verfied) {
 		this.verfied = verfied;
 	}
-	public Otp(String email, String otp, boolean verfied) {
+	public String getCreatedDate() {
+		return createdDate;
+	}
+	public void setCreatedDate(String createdDate) {
+		this.createdDate = createdDate;
+	}
+	public String getUpdatedDate() {
+		return updatedDate;
+	}
+	public void setUpdatedDate(String updatedDate) {
+		this.updatedDate = updatedDate;
+	}
+	public Otp(String email, String otp, boolean verfied, String createdDate, String updatedDate) {
 		super();
 		this.email = email;
 		this.otp = otp;
 		this.verfied = verfied;
+		this.createdDate = createdDate;
+		this.updatedDate = updatedDate;
 	}
 	public Otp() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	@Override
-	public String toString() {
-		return "Otp [email=" + email + ", otp=" + otp + ", verfied=" + verfied + "]";
-	}
+	
+	
+	
+
+	
 	
 	
 	

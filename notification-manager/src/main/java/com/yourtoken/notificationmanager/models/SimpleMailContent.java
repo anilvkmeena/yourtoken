@@ -1,5 +1,6 @@
-package com.yourtoken.notificationmanager.bean;
+package com.yourtoken.notificationmanager.models;
 
+// a class for set email content, when we send mail to user 
 public class SimpleMailContent {
 	private String emailId;
 	private String subject;

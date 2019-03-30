@@ -1,5 +1,7 @@
-package com.yourtoken.notificationmanager.Utility;
+package com.yourtoken.yourtokenadmin.utility;
 
+
+import java.util.Random;
 
 import org.springframework.stereotype.Component;
 
@@ -11,16 +13,18 @@ public class OtpGeneration {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	// a method for otp generation
+	// a method for otp generation basis on otp length
 	public int getotp()
 	{
-		int otpLength = NMConstant.Otp_Length;
+		int otpLength = YourTokenAdminConstants.Otp_Length;
 		int multiplier;
 		int otp;
 		multiplier = randomMultiplier(otpLength);
-		otp = (int) (Math.random()*multiplier);
+		Random random  =new Random();
+		otp = multiplier + random.nextInt(multiplier*9);
 		return otp;
 	}
+	
 	public int randomMultiplier(int otpLength )
 	{
 		int i;

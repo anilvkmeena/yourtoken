@@ -5,14 +5,16 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.yourtoken.yourtokenadmin.beans.ClientAdmin;
 import com.yourtoken.yourtokenadmin.dao.ClientAdminRepositry;
+import com.yourtoken.yourtokenadmin.model.ClientAdmin;
 
 @Service
 public class ClientAdminServiceImpl  implements ClientAdminService{
 
+	
 	private ClientAdminRepositry clientAdminRepositry ;
 	
+	//spring data jpa create bean of clientAdminRepositry
 	@Autowired
 	public ClientAdminServiceImpl(ClientAdminRepositry clientAdminRepositry) {
 		super();
@@ -24,6 +26,7 @@ public class ClientAdminServiceImpl  implements ClientAdminService{
 		 clientAdminRepositry.save(clientAdmin);
 	}
 
+	
 	@Override
 	public ClientAdmin findClient(int clientID) {
 		// TODO Auto-generated method stub

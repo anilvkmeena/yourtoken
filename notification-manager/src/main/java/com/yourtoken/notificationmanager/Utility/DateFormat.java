@@ -1,9 +1,9 @@
-package com.yourtoken.yourtokenadmin.utility;
+package com.yourtoken.notificationmanager.Utility;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class DateFormt {
+public class DateFormat {
 	
 	
 	public String currentDateTime()

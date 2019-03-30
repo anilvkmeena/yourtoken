@@ -1,6 +1,7 @@
 package com.yourtoken.notificationmanager.service;
 
-import com.yourtoken.notificationmanager.bean.SimpleMailContent;
+import com.yourtoken.notificationmanager.models.SimpleMailContent;
+
 
 public interface SendMailService {
 	
