@@ -6,7 +6,7 @@ import com.yourtoken.notificationmanager.models.SimpleMailContent;
 public interface SendMailService {
 	
 	public void setMessage(SimpleMailContent simpleMailContent);
-	public String sendMessage();
+	public void sendMessage();
 	
 
 }

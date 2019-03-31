@@ -11,7 +11,6 @@ public class Otp {
 	@Id
 	private String email;
 	private String otp;
-	private boolean verfied;
 	private String createdDate;
 	private String updatedDate;
 	public String getEmail() {
@@ -26,12 +25,7 @@ public class Otp {
 	public void setOtp(String otp) {
 		this.otp = otp;
 	}
-	public boolean isVerfied() {
-		return verfied;
-	}
-	public void setVerfied(boolean verfied) {
-		this.verfied = verfied;
-	}
+	
 	public String getCreatedDate() {
 		return createdDate;
 	}
@@ -44,14 +38,7 @@ public class Otp {
 	public void setUpdatedDate(String updatedDate) {
 		this.updatedDate = updatedDate;
 	}
-	public Otp(String email, String otp, boolean verfied, String createdDate, String updatedDate) {
-		super();
-		this.email = email;
-		this.otp = otp;
-		this.verfied = verfied;
-		this.createdDate = createdDate;
-		this.updatedDate = updatedDate;
-	}
+	
 	public Otp() {
 		super();
 		// TODO Auto-generated constructor stub

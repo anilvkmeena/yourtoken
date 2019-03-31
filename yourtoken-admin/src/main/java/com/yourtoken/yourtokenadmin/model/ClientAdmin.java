@@ -11,7 +11,9 @@ public class ClientAdmin {
 	private String clientEmail;
 	private String mobileNumber;
 	private String accountType;
-	private String registerDate;
+	private String createdDate;
+	private String updaedDate;
+	private boolean verified;
 	public int getClientId() {
 		return clientId;
 	}
@@ -42,16 +44,30 @@ public class ClientAdmin {
 	public void setAccountType(String accountType) {
 		this.accountType = accountType;
 	}
-	public String getRegisterDate() {
-		return registerDate;
+	
+	public String getCreatedDate() {
+		return createdDate;
 	}
-	public void setRegisterDate(String registerDate) {
-		this.registerDate = registerDate;
+	public void setCreatedDate(String createdDate) {
+		this.createdDate = createdDate;
+	}
+	public String getUpdaedDate() {
+		return updaedDate;
+	}
+	public void setUpdaedDate(String updaedDate) {
+		this.updaedDate = updaedDate;
 	}
 	public ClientAdmin() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	public boolean isVerified() {
+		return verified;
+	}
+	public void setVerified(boolean verified) {
+		this.verified = verified;
+	}
+	
 	
 	
 	

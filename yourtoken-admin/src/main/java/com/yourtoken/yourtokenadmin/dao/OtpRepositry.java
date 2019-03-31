@@ -9,9 +9,9 @@ import com.yourtoken.yourtokenadmin.model.Otp;
 public interface OtpRepositry extends JpaRepository<Otp, String> {
 	//JpaRepository provide CRUD feature free so we no need to define them
 	
-	@Modifying
+	/*@Modifying
 	@Transactional
 	@Query("update Otp o  set o.verfied = ?2 WHERE o.email = ?1")
 	int updateVerfiedStatus( String email, boolean verfied); // this function is able update table on basis of query
-
+*/
 }

@@ -12,5 +12,5 @@ public interface NotificationManagerFeginProxy {
 	//this method able to invoke sendmail api of notification-manger 
 	//we no need to implement it spring will automatically do it for us
 	@PostMapping("/sendmail")
-	public String sendMail(@RequestBody SimpleMailContent simpleMailContent); 
+	public void sendMail(@RequestBody SimpleMailContent simpleMailContent); 
 }

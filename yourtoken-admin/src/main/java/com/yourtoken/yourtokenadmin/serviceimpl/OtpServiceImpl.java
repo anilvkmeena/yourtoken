@@ -6,6 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.netflix.discovery.converters.Auto;
+import com.yourtoken.yourtokenadmin.dao.ClientAdminRepositry;
 import com.yourtoken.yourtokenadmin.dao.OtpRepositry;
 import com.yourtoken.yourtokenadmin.exception.YtAdminException;
 import com.yourtoken.yourtokenadmin.feignproxy.NotificationManagerFeginProxy;
@@ -14,17 +16,21 @@ import com.yourtoken.yourtokenadmin.model.SimpleMailContent;
 import com.yourtoken.yourtokenadmin.service.OtpService;
 import com.yourtoken.yourtokenadmin.utility.DateFormat;
 import com.yourtoken.yourtokenadmin.utility.NotificationMessage;
-import com.yourtoken.yourtokenadmin.utility.OtpGeneration;
+import com.yourtoken.yourtokenadmin.utility.OtpGenerator;
+import com.yourtoken.yourtokenadmin.utility.PasswordGenerator;
 
 @Service
 public class OtpServiceImpl implements OtpService {
 
 	
-	private OtpGeneration otpGeneration;
+	private OtpGenerator otpGenerator;
 	private OtpRepositry otpRepositry;
 	private DateFormat dateFormat;
 	private NotificationMessage notificationMessage;
 	private Otp otpObject=null;
+	@Autowired
+	private ClientAdminRepositry clientAdminRepositry;
+	private SimpleMailContent simpleMailContent = null;
 	
 	//spring create a bean for Feign client
 	@Autowired
@@ -44,9 +50,9 @@ public class OtpServiceImpl implements OtpService {
 	//using constructor here we injecting the dependencies bean we are created in config package 
 	
 	@Autowired
-	public OtpServiceImpl(OtpGeneration otpGeneration, OtpRepositry otpRepositry, DateFormat dateFormat,NotificationMessage notificationMessage) {
+	public OtpServiceImpl(OtpGenerator otpGenerator, OtpRepositry otpRepositry, DateFormat dateFormat,NotificationMessage notificationMessage) {
 		super();
-		this.otpGeneration = otpGeneration;
+		this.otpGenerator = otpGenerator;
 		this.otpRepositry = otpRepositry;
 		this.dateFormat = dateFormat;
 		this.notificationMessage=notificationMessage;
@@ -78,7 +84,7 @@ public class OtpServiceImpl implements OtpService {
 	//this method generating otp  and saving it on database 
 	public void GenerationOtpAndSave(String emailId)
 	{
-		SimpleMailContent simpleMailContent = null;
+		
 		String  otpdigit = null;
 		String createdtDate;
 		otpObject = getOtpObject(emailId);
@@ -86,7 +92,7 @@ public class OtpServiceImpl implements OtpService {
 		if(otpObject==null)
 		{
 			createdtDate = dateFormat.currentDateTime();
-			otpdigit = otpGeneration.getotp()+"";
+			otpdigit = otpGenerator.getotp()+"";
 			otpObject = new Otp();
 			otpObject.setEmail(emailId);
 			otpObject.setOtp(otpdigit);
@@ -95,18 +101,8 @@ public class OtpServiceImpl implements OtpService {
 			saveOtp(otpObject);
 			
 		}
-		else if(!otpObject.isVerfied())
-		{
-			createdtDate = dateFormat.currentDateTime();
-			otpdigit = otpGeneration.getotp()+"";
-			otpObject.setUpdatedDate(createdtDate);
-			otpObject.setOtp(otpdigit);
-			saveOtp(otpObject);
-		}
-		else if(otpObject.isVerfied())
-		{
-			throw new YtAdminException(" allready verfied");
-		}
+
+		
 		//here we are invoking sendmail api using feign client
 		
 		simpleMailContent = notificationMessage.otpMessage(emailId, otpdigit);
@@ -133,7 +129,25 @@ public class OtpServiceImpl implements OtpService {
 		}
 		else if(otpObject!=null&&otpObject.getOtp().equals(otp))
 		{	
-			otpRepositry.updateVerfiedStatus(emailId, true);
+			clientAdminRepositry.updateVerfiedStatus(emailId, true);
+			try {
+			PasswordGenerator passwordGenerator = new PasswordGenerator();
+			String tempPasswoprd = passwordGenerator.RandomPassword();
+			simpleMailContent = notificationMessage.defaultPasswordMessage(emailId,tempPasswoprd );
+			}
+			catch (Exception e) {
+				throw new YtAdminException("not able to generate password");
+			}
+			
+			//here we are invoking sendmail api using feign client
+			try {
+					notificationManagerFeginProxy.sendMail(simpleMailContent);
+				}
+			catch (Exception ex) {
+				// TODO: handle exception
+				throw new YtAdminException("not able to send mail");
+			}
+			
 		}
 		else
 		{

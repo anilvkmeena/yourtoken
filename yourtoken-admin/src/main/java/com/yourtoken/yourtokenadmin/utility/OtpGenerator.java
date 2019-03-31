@@ -6,10 +6,10 @@ import java.util.Random;
 import org.springframework.stereotype.Component;
 
 @Component
-public class OtpGeneration {
+public class OtpGenerator {
 	
 	
-	public OtpGeneration() {
+	public OtpGenerator() {
 		super();
 		// TODO Auto-generated constructor stub
 	}

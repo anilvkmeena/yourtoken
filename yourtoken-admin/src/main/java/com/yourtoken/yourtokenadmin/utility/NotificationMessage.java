@@ -31,5 +31,21 @@ public class NotificationMessage {
 		return simpleMailContent;
 		
 	}
+	
+	public SimpleMailContent defaultPasswordMessage(String emailId,String tempPasswoprd)
+	{
+		simpleMailContent = new SimpleMailContent();
+		String emailText  ="your default password is:\r\n" + 
+				"\r\n" + 
+				tempPasswoprd + 
+				"\r\n" + 
+				"This password is confidential. For security reasons, DO NOT share the password with anyone. ";
+		simpleMailContent.setEmailId(emailId);
+		simpleMailContent.setEmailText(emailText);
+		simpleMailContent.setSubject("YourToken OTP");
+		return simpleMailContent;
+		
+	}
 
+	
 }

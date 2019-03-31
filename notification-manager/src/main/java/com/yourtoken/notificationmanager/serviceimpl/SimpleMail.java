@@ -8,6 +8,7 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.stereotype.Service;
 
+import com.yourtoken.notificationmanager.exception.EmailException;
 import com.yourtoken.notificationmanager.models.SimpleMailContent;
 import com.yourtoken.notificationmanager.service.SendMailService;
 
@@ -34,7 +35,7 @@ public class SimpleMail implements SendMailService {
 	}
 
 	@Override
-	public String sendMessage() {
+	public void sendMessage() {
 		// TODO Auto-generated method stub
 	
 		try{
@@ -50,9 +51,9 @@ public class SimpleMail implements SendMailService {
 		}
 		catch (MailException ex) {
             // simply log it and go on...
-            return ex.getMessage();
+            throw new EmailException("we are not to able to send email");
         }
-		return "your message has been sent";
+		
 		
 	}
 

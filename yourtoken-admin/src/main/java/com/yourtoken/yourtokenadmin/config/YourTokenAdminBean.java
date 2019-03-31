@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 
 import com.yourtoken.yourtokenadmin.utility.DateFormat;
 import com.yourtoken.yourtokenadmin.utility.NotificationMessage;
-import com.yourtoken.yourtokenadmin.utility.OtpGeneration;
+import com.yourtoken.yourtokenadmin.utility.OtpGenerator;
 
 
 @Configuration
@@ -17,9 +17,9 @@ public class YourTokenAdminBean {
 		return new DateFormat();
 	}
 	@Bean
-	public OtpGeneration otpGenerationBean()
+	public OtpGenerator otpGenerationBean()
 	{
-		return new OtpGeneration();
+		return new OtpGenerator();
 		
 	}
 	@Bean
