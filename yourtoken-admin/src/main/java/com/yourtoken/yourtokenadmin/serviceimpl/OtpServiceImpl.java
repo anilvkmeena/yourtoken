@@ -38,10 +38,6 @@ public class OtpServiceImpl implements OtpService {
 	
 	
 	
-	//spring create a bean for Feign client
-	//@Autowired
-	//private NotificationManagerFeginProxy notificationManagerFeginProxy;
-	
 	public OtpServiceImpl() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -133,7 +129,11 @@ public class OtpServiceImpl implements OtpService {
 			try {
 			PasswordGenerator passwordGenerator = new PasswordGenerator();
 			String tempPasswoprd = passwordGenerator.RandomPassword();
+			
 			simpleMailContent = notificationMessage.defaultPasswordMessage(emailId,tempPasswoprd );
+			
+			
+			
 			}
 			catch (Exception e) {
 				throw new YtAdminException("not able to generate password");

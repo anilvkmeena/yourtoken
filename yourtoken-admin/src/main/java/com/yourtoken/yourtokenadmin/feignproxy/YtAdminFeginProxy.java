@@ -8,5 +8,5 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface YtAdminFeginProxy {
 
 	@PostMapping("otp")
-	public void otpGeneration(@RequestParam String emailId);
+	public void otpGenerator(@RequestParam String emailId);
 }

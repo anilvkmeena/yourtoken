@@ -30,7 +30,7 @@ public class ClientAdminServiceImpl  implements ClientAdminService{
 		String emailId = clientAdmin.getClientEmail();
 		
 		clientAdminRepositry.save(clientAdmin);
-		ytAdminFeginProxy.otpGeneration(emailId);
+		ytAdminFeginProxy.otpGenerator(emailId);
 	}
 
 	

@@ -1,0 +1,22 @@
+CREATE TABLE `otp` (
+  `email` varchar(255) NOT NULL,
+  `otp` varchar(45) NOT NULL,
+  `created_date` varchar(45) NOT NULL,
+  `updated_date` varchar(45) NOT NULL,
+  PRIMARY KEY (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+
+
+CREATE TABLE `client_admin` (
+  `client_id` int(11) NOT NULL,
+  `account_type` varchar(255) NOT NULL,
+  `client_email` varchar(255) NOT NULL,
+  `client_name` varchar(255) NOT NULL,
+  `created_date` varchar(255) NOT NULL,
+  `mobile_number` varchar(255) NOT NULL,
+  `updaed_date` varchar(255) NOT NULL,
+  `verified` bit(1) NOT NULL,
+  PRIMARY KEY (`client_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci

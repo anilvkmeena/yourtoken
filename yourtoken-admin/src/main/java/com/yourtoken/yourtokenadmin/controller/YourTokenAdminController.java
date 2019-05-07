@@ -36,6 +36,8 @@ public class YourTokenAdminController {
 		this.otpServiceImpl = otpServiceImpl;
 	}
 
+	
+	
 	@GetMapping("/test")
 	public String  test()
 	{

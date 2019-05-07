@@ -1,0 +1,11 @@
+localhost:8087/client
+
+{
+	"clientName":"anil",
+	"clientEmail":"akumarmeena11@gmail.com",
+	"mobileNumber":"9728433205",
+	"accountType":"one",
+	"createdDate":"2019-03-31 12:35:07",
+	"updaedDate":"2019-03-31 12:35:07"
+}
+
