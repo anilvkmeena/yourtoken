@@ -4,7 +4,7 @@ spring:
   mail:
     host: smtp.gmail.com
     username: akumarmeeasdadasdna11@gmail.com
-    password: 1easd23112123213asdasdasd
+    password: =s
     port: 587
   datasource:
     url: jdbc:mysql://localhost:3306/notification_manager
