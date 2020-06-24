@@ -3,8 +3,8 @@ spring:
     name: notification-manager
   mail:
     host: smtp.gmail.com
-    username: akumarmeena11@gmail.com
-    password: 19960714an+OD
+    username: akumarmeeasdadasdna11@gmail.com
+    password: 1easd23112123213asdasdasd
     port: 587
   datasource:
     url: jdbc:mysql://localhost:3306/notification_manager
