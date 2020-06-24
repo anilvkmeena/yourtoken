@@ -2,7 +2,7 @@ localhost:8087/client
 
 {
 	"clientName":"anil",
-	"clientEmail":"akumarmeena11@gmail.com",
+	"clientEmail":"asdasda@gmail.com",
 	"mobileNumber":"21313123asdsads",
 	"accountType":"one",
 	"createdDate":"2019-03-31 12:35:07",
